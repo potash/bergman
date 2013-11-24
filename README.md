@@ -1,4 +1,4 @@
-Python script for generating and viewing "truncated Bergman metrics" of the 2-sphere. For example
+Python script for generating and viewing what you might call <i>truncated random Bergman metrics</i> of the 2-sphere in R^3. For example
 
     python bergman.py 1
 
