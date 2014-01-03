@@ -3,7 +3,6 @@ from scipy.special import sph_harm
 import math
 import argparse
 
-import argparse
 parser = argparse.ArgumentParser(description='Render a Gaussian random Bergman metric of degree N on the round sphere.')
 parser.add_argument('N', action="store", type=int, help="degree")
 parser.add_argument('-e', action="store_true", default=False, help="use eigenfunctions of degree exactly N")
@@ -29,14 +28,15 @@ phi, theta = np.mgrid[0:pi:res*1j, 0:2*pi:res*1j]
 print "Calculating harmonics..."
 # calculate the standard (real) spherical harmonics
 Y = []
+sqrt2 = math.sqrt(2);
 for l in range(M,N+1):
 	print (l, 0)
 	Y.append(sph_harm(0,l,theta,phi).real)
 	for m in range(1,l+1):
 		print (l, m)
 		a = sph_harm(m,l,theta,phi)
-		Y.append(math.sqrt(2)*a.real)
-		Y.append(math.sqrt(2)*a.imag)
+		Y.append(sqrt2*a.real)
+		Y.append(sqrt2*a.imag)
 
 # if rendering
 if not args.c:
